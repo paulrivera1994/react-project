@@ -1,0 +1,20 @@
+body {
+  background-color: rgba(0, 153, 255, 0.86);
+}
+
+li {
+  list-style-type: none;
+}
+/* Unordered list containing films */
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+
+  padding: 0;
+}
+
+.text-center {
+  text-align: center;
+}

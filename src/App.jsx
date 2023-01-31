@@ -1,51 +1,38 @@
 import React from "react";
 import "./App.css";
-import FilmList from "./components/filmList";
+import FilmsList from "./components/filmList";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+function App(props) {
+  const [list, setList] = useState(["ready", "set", "GO"]);
+  const [text, setText] = useState("");
 
-    this.state = {
-      list: ["ready", "set", "GO"],
-      text: "",
-    };
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  onSubmit(event) {
+  function onSubmit(event) {
     event.preventDefault();
-    this.setState({
-      list: [...this.state.list, this.state.text],
-    });
+    setList([...list, text]);
   }
 
-  render() {
-    return (
-      <div>
-        <h1>Hello World</h1>
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            placeholder="Input Field"
-            value={this.state.text}
-            onChange={(event) => {
-              this.setState({
-                text: event.target.value,
-              });
-            }}
-          ></input>
-          <button type="submit">Add</button>
-        </form>
-        <ul>
-          {this.state.list.map((item, index) => {
-            return <li key={index}>{item}</li>;
-          })}
-        </ul>
-        <FilmList />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h1>Studio Ghibli Films</h1>
+      <form onSubmit={onSubmit}>
+        <input
+          type="text"
+          placeholder="Input Field"
+          value={text}
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
+        ></input>
+        <button type="submit">Add</button>
+      </form>
+      <ul>
+        {list.map((item, index) => {
+          return <li key={index}>{item}</li>;
+        })}
+      </ul>
+      <FilmsList />
+    </div>
+  );
 }
 
 export default App;
