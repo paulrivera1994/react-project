@@ -1,5 +1,14 @@
 body {
-  background-color: rgba(0, 153, 255, 0.86);
+  background-color: rgb(44, 42, 42);
+  color: aliceblue;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+h2 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 li {
@@ -17,4 +26,23 @@ li {
 
 .text-center {
   text-align: center;
+}
+.filmHeaderSection {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.form-group {
+  display: flex;
+  gap: 1rem;
+  font-size: 1rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.form-group > select {
+  font-size: inherit;
+  font-family: inherit;
+}
+a {
+  text-decoration: none;
+  color: white;
 }
