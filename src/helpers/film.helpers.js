@@ -15,3 +15,26 @@ export function getListOf(list, prop) {
   }
   return resultArray;
 }
+
+export function getFilmStats(list) {
+  let acc_score = 0;
+  // list.forEach((film) => {
+  //   acc_score += film.rt_score;
+  // });
+  acc_score = list.reduce((acc, curr) => acc + parseInt(curr.rt_score), 0);
+  const total = list.length;
+  const avg_score = acc_score / total;
+  let latest = 0;
+  list.forEach((film) => {
+    if (latest < film.release_date) {
+      latest = film.release_date;
+    }
+  });
+
+  return {
+    avg_score,
+    acc_score,
+    total,
+    latest,
+  };
+}
